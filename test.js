@@ -75,10 +75,15 @@ const newAst = {
   }]
 };
 
+console.log('input');
+console.log(input);
+console.log('output');
+console.log(output);
+
 assert.deepStrictEqual(tokenizer(input), tokens, 'Tokenizer should turn `input` string into `tokens` array');
 assert.deepStrictEqual(parser(tokens), ast, 'Parser should turn `tokens` array into `ast`');
 assert.deepStrictEqual(transformer(ast), newAst, 'Transformer should turn `ast` into a `newAst`');
-// assert.deepStrictEqual(codeGenerator(newAst), output, 'Code Generator should turn `newAst` into `output` string');
-// assert.deepStrictEqual(compiler(input), output, 'Compiler should turn `input` into `output`');
+assert.deepStrictEqual(codeGenerator(newAst), output, 'Code Generator should turn `newAst` into `output` string');
+assert.deepStrictEqual(compiler(input), output, 'Compiler should turn `input` into `output`');
 
-console.log('All Passed!');
+console.log('\nAll Passed!');
